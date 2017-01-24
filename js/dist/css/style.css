@@ -1,0 +1,13 @@
+textarea.form-control {
+    max-width: 100%;
+    min-height: 200px;
+}
+.groupflat-widget {
+    margin-top: 20px;
+}
+.groupflat-widget .box {
+    border-top: 5px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 2px solid #cccccc;
+}

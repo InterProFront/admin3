@@ -1,0 +1,38 @@
+textarea.form-control {
+    max-width: 100%;
+    min-height: 200px;
+}
+.groupflat-widget {
+    margin-top: 20px;
+}
+.groupflat-widget .box {
+    border-top: 5px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 2px solid #cccccc;
+}
+
+
+.file-preview-image {
+    max-width: 100%;
+    max-height: 160px;
+    min-height: 50px;
+}
+
+
+.skin-blue .sidebar-menu>li.header {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+
+
+/*Были удалены все шрифты кроме Arial, sans-serif*/
+
+
+/*
+Временно скрытые блоки и элементы*/
+
+.breadcrumb,   .fileinput-remove.fileinput-remove-button {
+    display: none;
+}
