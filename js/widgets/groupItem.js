@@ -1,6 +1,6 @@
 var groupitem = (function () {
 
-    var $this;
+    //var $this;
     var _widget_types = {
         add: {
             button: '.add-flat-item'
@@ -20,7 +20,7 @@ var groupitem = (function () {
         if (options === undefined) {
             return {error: true, msg: 'Невозможно создать виджет'};
         } else {
-            $this = this;
+            var $this = this;
 
             this.elem        = options.elem;
             this.pos         = options.position;

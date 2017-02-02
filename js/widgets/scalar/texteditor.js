@@ -2,6 +2,21 @@ var texteditor = (function () {
     //Переменные по умолчанию, и внутренние переменные для работы
     var data = {};
 
+    function sendFile(file, editor, welEditable){
+        data = new FormData();
+        data.append("file", file);
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: "Your URL POST (php)",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(url) {
+                editor.insertImage(welEditable, url);
+            }
+        });
+    }
     var Constr = function (options) {
         if (options === undefined) {
             return {error: true, msg: 'Невозможно создать виджет'};
@@ -26,7 +41,10 @@ var texteditor = (function () {
                         ['insert', ['picture','link','video','table'] ],
                         ['paragraph', ['ul', 'ol', 'paragraph']],
                         ['misc', ['fullscreen', 'codeview']]
-                    ]
+                    ],
+                    onImageUpload: function(files, editor, welEditable) {
+                        sendFile(files[0], editor, welEditable);
+                    }
                 });
 
             this.get = function () {
