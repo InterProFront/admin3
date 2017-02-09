@@ -42,11 +42,11 @@ var widgets_class = {
     image: {
         class: '.form-control.file',
         object: image
-    }//,
-    //texteditor: {
-    //    class: '.form-control.text-editor',
-    //    object: texteditor
-    //}
+    },
+    texteditor: {
+        class: '.form-control.text-editor',
+        object: texteditor
+    }
 };
 
 var View = (function () {

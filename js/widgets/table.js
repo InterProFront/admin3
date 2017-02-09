@@ -57,7 +57,15 @@ var table = (function () {
                 "searching": false,
                 "ordering": true,
                 "info": true,
-                "autoWidth": false
+                "autoWidth": false,
+                "language": {
+                    "info": "Показаны страницы с _PAGE_ по _PAGES_",
+                    "zeroRecords": "Записей нет",
+                    "paginate": {
+                        "previous": "Следующая",
+                        "next"    : "Предыдущая"
+                    }
+                }
             });
 
             this.add = function( data ){
