@@ -3,7 +3,7 @@ $(document).ready(function(){
     Api.init();
     View.init();
     Status.init();
-1231
+
 
     // TODO: Вынести в меню видежт
 

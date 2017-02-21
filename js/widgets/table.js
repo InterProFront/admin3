@@ -60,6 +60,7 @@ var table = (function () {
                 "autoWidth": false,
                 "language": {
                     "info": "Показаны страницы с _PAGE_ по _PAGES_",
+                    "infoEmpty" : "Нет записей",
                     "zeroRecords": "Записей нет",
                     "paginate": {
                         "previous": "Следующая",
