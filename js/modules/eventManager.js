@@ -38,10 +38,17 @@ var eventManager = (function(){
 
 
 
+
         sendFile: function($pos){
             Api.sendImage( View.widgets[$pos].load(), $pos );
             Status.add('sendFileLoad');
         },
+        sendFile_: function($pos){
+            Api.sendFile( View.widgets[$pos].load(), $pos );
+            Status.add('sendFileLoad');
+        },
+
+
         returnXHR: function(){
 
         },

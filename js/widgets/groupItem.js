@@ -39,14 +39,17 @@ var groupitem = (function () {
 
             });
             $(this.elem).on('click',_widget_types.remove.button,function( event ){
-                obj = {
-                    block: $(event.target).data('block'),
-                    id   : $(event.target).data('id')
-                };
-                eventManager.call('removeWidgets', $(event.target).closest('.box') );
+                var res = confirm('Удалить элемент?');
+                if(res){
+                    obj = {
+                        block: $(event.target).data('block'),
+                        id   : $(event.target).data('id')
+                    };
+                    eventManager.call('removeWidgets', $(event.target).closest('.box') );
 
-                $(event.target).closest('.box').remove();
-                eventManager.call('removeItem', obj);
+                    $(event.target).closest('.box').remove();
+                    eventManager.call('removeItem', obj);
+                }
             });
 
             this.add = function( data ){

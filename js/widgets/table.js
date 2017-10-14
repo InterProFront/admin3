@@ -60,6 +60,7 @@ var table = (function () {
                 "autoWidth": false,
                 "language": {
                     "info": "Показаны страницы с _PAGE_ по _PAGES_",
+                    "infoEmpty" : "Нет записей",
                     "zeroRecords": "Записей нет",
                     "paginate": {
                         "previous": "Следующая",
@@ -115,14 +116,17 @@ var table = (function () {
 
             // Удаление элемента
             $(this.elem).on('click', _widget_types.remove.button, function(event){
-                obj = {
-                    block: $(event.target).data('block'),
-                    id   : $(event.target).data('id')
-                };
-                row = $this.tableObject.row( $(event.target).closest('tr')).index() ;
-                $this.tableObject.row(row).remove().draw();
+                var res = confirm('Удалить элемент?');
+                if(res){
+                    obj = {
+                        block: $(event.target).data('block'),
+                        id   : $(event.target).data('id')
+                    };
+                    row = $this.tableObject.row( $(event.target).closest('tr')).index() ;
+                    $this.tableObject.row(row).remove().draw();
 
-                eventManager.call('removeItem', obj);
+                    eventManager.call('removeItem', obj);
+                }
             });
 
 

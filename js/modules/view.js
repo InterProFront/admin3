@@ -46,6 +46,14 @@ var widgets_class = {
     texteditor: {
         class: '.form-control.text-editor',
         object: texteditor
+    },
+    multiupload: {
+        class: '.form-control.multiupload',
+        object: multiupload
+    },
+    file: {
+        class: '.form-control.files',
+        object: file
     }
 };
 
@@ -63,7 +71,7 @@ var View = (function () {
                         tmp = new obj.object({elem: this, position: widgets.length});
 
                         widgets.push(tmp);
-                        if( !(key == 'table' || key == 'groupitems') ){
+                        if( !((key == 'table' || key == 'groupitems') || key == 'multiupload') ){
                             Model.set(tmp.get());
                         }
                     }

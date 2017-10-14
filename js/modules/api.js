@@ -22,6 +22,12 @@ var Api = (function () {
             url: '/adm/image/upload',
             pD :  false,
             cT :  false
+        },
+        file: {
+            type: 'POST',
+            url: '/adm/file/upload',
+            pD :  false,
+            cT :  false
         }
     };
     var tokenClass = 'meta[name="csrf-token"]';
@@ -142,6 +148,37 @@ var Api = (function () {
             });
             deferred.fail(function(){
                 eventManager.call('saveFail');
+            });
+        },
+
+        sendFile: function( formData, pos ){
+            var deferred = $.ajax({
+                type: _config.file.type,
+                url: _config.file.url,
+                processData: _config.file.pD,
+                contentType: _config.file.cT,
+                data: formData
+                //xhr: function(){
+                //    var myXhr = $.ajaxSettings.xhr();
+                //    if(myXhr.upload){
+                //        myXhr.upload.addEventListener('progress',progress, false);
+                //    }
+                //    eventManager.call('returnXHR', myXhr);
+                //}
+            });
+            deferred.success(function(data){
+                if( !data.error ){
+                    eventManager.call('fileSuccess', data.preview, pos );
+                }else{
+                    eventManager.call('fileError', data.message)
+                }
+            });
+            deferred.fail(function(data){
+                if(data.status == 413){
+                    eventManager.call('fileError','Слишком большой файл.');
+                }else{
+                    eventManager.call('sendFail');
+                }
             });
         }
 

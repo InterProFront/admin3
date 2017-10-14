@@ -15,6 +15,12 @@ var text = (function () {
             this.blockName = $(this.elem).data('block');
             this.id        = $(this.elem).data('id');
 
+            this.reg       = $(this.elem).data('reg') ? true : false;
+            if(this.reg){
+                $(this.elem).val( $(this.elem).val().replace(/<br\s*\/?>/ig, "\r\n") );
+            }
+
+
             this.get = function () {
                 obj = {
                     block: this.blockName,
@@ -29,7 +35,11 @@ var text = (function () {
             };
 
             this.getField = function () {
-                return $(this.elem).val();
+                if($this.reg){
+                    return $(this.elem).val().replace(/\n/g, "<br />");
+                }else{
+                    return $(this.elem).val();
+                }
             };
 
             this.set = function (value) {
